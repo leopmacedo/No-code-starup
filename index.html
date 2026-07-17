@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plano de Estudos — Claude Code</title>
+<meta name="description" content="Jornada de aprendizado interativa sobre Claude Code para profissionais não técnicos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0f11;
+    --bg-elevated: #16181c;
+    --bg-elevated-2: #1c1f24;
+    --border: rgba(255,255,255,0.07);
+    --border-strong: rgba(255,255,255,0.14);
+    --text: #eaecef;
+    --text-muted: #93989f;
+    --text-faint: #5b6068;
+    --teal: #14b8a6;
+    --purple: #8b5cf6;
+    --amber: #f59e0b;
+    --radius: 16px;
+    --shadow: 0 20px 60px -20px rgba(0,0,0,0.6);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background:
+      radial-gradient(1100px 600px at 15% -10%, rgba(20,184,166,0.10), transparent 60%),
+      radial-gradient(900px 500px at 90% 0%, rgba(139,92,246,0.10), transparent 55%),
+      var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', ui-monospace, monospace;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Syne', sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 56px 20px 120px;
+  }
+
+  /* ---------- HEADER ---------- */
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: rgba(20,184,166,0.10);
+    border: 1px solid rgba(20,184,166,0.25);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+
+  header h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    margin: 0 0 12px;
+    line-height: 1.1;
+    background: linear-gradient(120deg, #fff 30%, #b7bcc4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  header p.lead {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 560px;
+    margin: 0 0 36px;
+  }
+
+  .progress-panel {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+  }
+
+  .progress-panel-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 14px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .progress-panel-top .label {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text);
+  }
+
+  .progress-panel-top .pct {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .progress-panel-top .pct strong {
+    color: var(--teal);
+    font-size: 16px;
+  }
+
+  .bar-track {
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--teal), var(--purple));
+    width: 0%;
+    transition: width 0.6s cubic-bezier(.22,1,.36,1);
+  }
+
+  .progress-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--text-faint);
+  }
+
+  /* ---------- TIMELINE ---------- */
+
+  .timeline {
+    position: relative;
+    margin-top: 48px;
+  }
+
+  .rail {
+    position: absolute;
+    left: 27px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: var(--border);
+    z-index: 0;
+  }
+
+  .rail-fill {
+    position: absolute;
+    left: 27px;
+    top: 10px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--teal), var(--purple));
+    z-index: 1;
+    transition: height 0.8s cubic-bezier(.22,1,.36,1);
+  }
+
+  .phase {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 22px;
+    margin-bottom: 28px;
+    opacity: 0;
+    transform: translateY(18px);
+    animation: rise 0.7s cubic-bezier(.22,1,.36,1) forwards;
+  }
+
+  .phase:nth-of-type(1) { animation-delay: 0.05s; }
+  .phase:nth-of-type(2) { animation-delay: 0.15s; }
+  .phase:nth-of-type(3) { animation-delay: 0.25s; }
+  .phase:nth-of-type(4) { animation-delay: 0.35s; }
+  .phase:nth-of-type(5) { animation-delay: 0.45s; }
+
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .node-col {
+    flex: 0 0 auto;
+    width: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .node {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--bg-elevated);
+    border: 2px solid var(--border-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    transition: all 0.4s ease;
+    flex-shrink: 0;
+  }
+
+  .phase.state-completed .node {
+    background: color-mix(in srgb, var(--accent) 22%, var(--bg-elevated));
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 15%, transparent);
+  }
+
+  .phase.state-available .node {
+    border-color: var(--accent);
+  }
+
+  .phase.state-locked .node {
+    filter: grayscale(1);
+    opacity: 0.45;
+  }
+
+  /* ---------- CARD ---------- */
+
+  .card {
+    flex: 1;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: border-color 0.3s ease, opacity 0.3s ease;
+  }
+
+  .phase.state-locked .card {
+    opacity: 0.55;
+  }
+
+  .phase.state-available .card {
+    border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  }
+
+  .phase.state-completed .card {
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .phase.state-locked .card-head {
+    cursor: not-allowed;
+  }
+
+  .card-head-text { flex: 1; min-width: 0; }
+
+  .card-head .tag {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .card-head h2 {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .status-pill {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .state-locked .status-pill {
+    background: rgba(255,255,255,0.06);
+    color: var(--text-faint);
+    border: 1px solid var(--border);
+  }
+
+  .state-available .status-pill {
+    background: color-mix(in srgb, var(--accent) 15%, transparent);
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  }
+
+  .state-completed .status-pill {
+    background: var(--accent);
+    color: #0e0f11;
+    border: 1px solid var(--accent);
+    font-weight: 700;
+  }
+
+  .chevron {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: var(--text-faint);
+    transition: transform 0.35s ease;
+  }
+
+  .phase.open .chevron { transform: rotate(180deg); }
+
+  .card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(.22,1,.36,1);
+  }
+
+  .phase.open .card-body { max-height: 900px; }
+
+  .card-body-inner {
+    padding: 4px 20px 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 4px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .item:last-child { border-bottom: none; }
+
+  .checkbox {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    border-radius: 6px;
+    border: 1.5px solid var(--border-strong);
+    background: var(--bg-elevated-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .phase.state-locked .checkbox {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .checkbox svg {
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.2s ease;
+    stroke: #0e0f11;
+  }
+
+  .checkbox.checked {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .checkbox.checked svg {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .item-text { flex: 1; min-width: 0; }
+
+  .item-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    color: var(--text);
+    margin-bottom: 3px;
+    transition: color 0.2s ease;
+  }
+
+  .item.done .item-title {
+    color: var(--text-muted);
+    text-decoration: line-through;
+    text-decoration-color: var(--text-faint);
+  }
+
+  .item-desc {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  .lock-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 4px 4px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed var(--border-strong);
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  .phase.shake .card { animation: shake 0.4s ease; }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+  }
+
+  /* ---------- BADGE ---------- */
+
+  .badge-wrap {
+    margin-top: 40px;
+    text-align: center;
+    padding: 44px 24px;
+    border-radius: var(--radius);
+    background: linear-gradient(160deg, rgba(20,184,166,0.12), rgba(139,92,246,0.10));
+    border: 1px solid rgba(20,184,166,0.3);
+    display: none;
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(.22,1,.36,1);
+  }
+
+  .badge-wrap.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .badge-medal {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    background: linear-gradient(140deg, var(--teal), var(--purple));
+    box-shadow: 0 0 0 8px rgba(20,184,166,0.10), 0 20px 40px -10px rgba(139,92,246,0.4);
+  }
+
+  .badge-wrap h3 {
+    font-size: 24px;
+    margin: 0 0 8px;
+  }
+
+  .badge-wrap p {
+    color: var(--text-muted);
+    font-size: 13px;
+    max-width: 420px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  footer {
+    margin-top: 56px;
+    text-align: center;
+  }
+
+  .reset-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text-faint);
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 9px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .reset-btn:hover {
+    color: var(--text);
+    border-color: var(--border-strong);
+    background: rgba(255,255,255,0.03);
+  }
+
+  @media (max-width: 640px) {
+    .node-col { width: 40px; }
+    .node { width: 40px; height: 40px; font-size: 16px; }
+    .rail, .rail-fill { left: 19px; }
+    .phase { gap: 14px; }
+    .card-head { padding: 14px; }
+    .status-pill { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <span class="eyebrow">🎓 Plano de estudos personalizado</span>
+    <h1>Claude Code, do zero ao avançado</h1>
+    <p class="lead">
+      Uma trilha pensada para quem não programa, mas quer construir produtos digitais
+      reais com ajuda de um agente de IA. Marque os itens conforme avança — cada fase
+      concluída destrava a próxima.
+    </p>
+
+    <div class="progress-panel">
+      <div class="progress-panel-top">
+        <span class="label">Progresso geral</span>
+        <span class="pct"><strong id="pctValue">0%</strong> concluído</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" id="barFill"></div>
+      </div>
+      <div class="progress-meta">
+        <span id="metaCount">0 de 0 tópicos</span>
+        <span id="metaPhase">Fase 1 de 5</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="timeline" id="timeline">
+    <div class="rail"></div>
+    <div class="rail-fill" id="railFill"></div>
+    <!-- phases injected by JS -->
+  </div>
+
+  <div class="badge-wrap" id="badgeWrap">
+    <div class="badge-medal">🏆</div>
+    <h3>Trilha concluída!</h3>
+    <p>
+      Você percorreu todas as 5 fases do plano de estudos de Claude Code.
+      Agora é hora de colocar em prática: abra um projeto de verdade e comece a construir.
+    </p>
+  </div>
+
+  <footer>
+    <button class="reset-btn" id="resetBtn" type="button">↺ reiniciar progresso</button>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  const PHASES = [
+    {
+      id: 'f1',
+      accent: 'var(--teal)',
+      icon: '🌱',
+      tag: 'Fase 1',
+      title: 'Fundamentos',
+      subtitle: 'O que é e por que importa',
+      items: [
+        { id: 'f1i1', title: 'O que é Claude Code', desc: 'Um assistente de IA que escreve, entende e executa código por você, direto no terminal.' },
+        { id: 'f1i2', title: 'Por que profissionais não técnicos devem aprender', desc: 'Você não precisa programar para criar produtos digitais reais — só precisa conversar com o agente certo.' },
+        { id: 'f1i3', title: 'Como funciona o terminal / linha de comando', desc: 'A "tela preta" que assusta é só uma caixa de texto onde você digita instruções em vez de clicar em botões.' },
+        { id: 'f1i4', title: 'O que é um projeto de software na prática', desc: 'Uma pasta de arquivos organizados que, juntos, formam um site, app ou ferramenta funcional.' }
+      ]
+    },
+    {
+      id: 'f2',
+      accent: 'var(--purple)',
+      icon: '🚀',
+      tag: 'Fase 2',
+      title: 'Primeiros passos',
+      subtitle: 'Colocando a mão na massa',
+      items: [
+        { id: 'f2i1', title: 'Instalação e configuração', desc: 'Coloque o Claude Code para rodar na sua máquina em poucos minutos, sem experiência prévia.' },
+        { id: 'f2i2', title: 'Primeiro comando no Claude Code', desc: 'Dê a primeira instrução e veja o agente transformar palavras em código real.' },
+        { id: 'f2i3', title: 'Entendendo o contexto e a janela de contexto', desc: 'Tudo o que o agente "lembra" durante a conversa — e por que isso importa para respostas melhores.' },
+        { id: 'f2i4', title: 'O arquivo CLAUDE.md — seu briefing para o agente', desc: 'Um documento que ensina o agente sobre o seu projeto, suas regras e preferências.' }
+      ]
+    },
+    {
+      id: 'f3',
+      accent: 'var(--amber)',
+      icon: '🗂️',
+      tag: 'Fase 3',
+      title: 'Trabalhando com projetos',
+      subtitle: 'Do planejamento à execução',
+      items: [
+        { id: 'f3i1', title: 'Criando e navegando em projetos', desc: 'Organize pastas e arquivos para que o agente entenda onde cada coisa deve viver.' },
+        { id: 'f3i2', title: 'PRD: como descrever o que você quer construir', desc: 'Um documento simples que traduz sua ideia em requisitos claros que o agente consegue executar.' },
+        { id: 'f3i3', title: 'Plan Mode: planejar antes de executar', desc: 'Peça ao agente um plano antes da ação — evite retrabalho e surpresas.' },
+        { id: 'f3i4', title: 'Uso do /clear para resetar contexto', desc: 'Comece do zero quando a conversa ficar longa demais ou sair do rumo.' }
+      ]
+    },
+    {
+      id: 'f4',
+      accent: 'var(--teal)',
+      icon: '🔧',
+      tag: 'Fase 4',
+      title: 'Fluxo profissional',
+      subtitle: 'Organização e qualidade',
+      items: [
+        { id: 'f4i1', title: 'Git e GitHub: salvar e versionar seu trabalho', desc: 'A rede de segurança que guarda cada versão do seu projeto, para você nunca perder progresso.' },
+        { id: 'f4i2', title: 'Milestones e commits organizados', desc: 'Divida o trabalho em marcos pequenos e registre cada avanço com clareza.' },
+        { id: 'f4i3', title: 'Revisando e corrigindo erros do agente', desc: 'Nenhum agente acerta 100% — aprenda a revisar e direcionar correções com confiança.' },
+        { id: 'f4i4', title: 'Boas práticas de prompt para Claude Code', desc: 'Peça melhor, receba melhor: estrutura, contexto e exemplos fazem toda a diferença.' }
+      ]
+    },
+    {
+      id: 'f5',
+      accent: 'var(--purple)',
+      icon: '🧠',
+      tag: 'Fase 5',
+      title: 'Nível avançado',
+      subtitle: 'Escalando o que você constrói',
+      items: [
+        { id: 'f5i1', title: 'Sub-agentes e Skills', desc: 'Delegue tarefas especializadas a agentes menores, cada um focado em uma parte do trabalho.' },
+        { id: 'f5i2', title: 'Orquestração de múltiplos agentes', desc: 'Coordene vários agentes trabalhando em paralelo em um mesmo objetivo maior.' },
+        { id: 'f5i3', title: 'Conectando Claude Code a APIs externas (MCP)', desc: 'Dê ao agente acesso a ferramentas externas — bancos de dados, GitHub, Slack e mais.' },
+        { id: 'f5i4', title: 'Deploy do seu produto gerado pelo agente', desc: 'O último passo: colocar o que você construiu no ar, para o mundo usar.' }
+      ]
+    }
+  ];
+
+  const STORAGE_KEY = 'claudeCodeStudyPlan.v1';
+  const ALL_ITEM_IDS = PHASES.flatMap(p => p.items.map(i => i.id));
+
+  function loadState() {
+    try {
+      const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      return {
+        checked: raw.checked || {},
+        open: raw.open || {}
+      };
+    } catch (e) {
+      return { checked: {}, open: {} };
+    }
+  }
+
+  function saveState() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  let state = loadState();
+
+  function isPhaseComplete(phase) {
+    return phase.items.every(i => !!state.checked[i.id]);
+  }
+
+  function phaseStatus(index) {
+    if (index === 0) return isPhaseComplete(PHASES[0]) ? 'completed' : 'available';
+    const prevComplete = isPhaseComplete(PHASES[index - 1]);
+    if (!prevComplete) return 'locked';
+    return isPhaseComplete(PHASES[index]) ? 'completed' : 'available';
+  }
+
+  const timeline = document.getElementById('timeline');
+  const checkIconSVG = '<svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+  const chevronSVG = '<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+
+  function render() {
+    timeline.querySelectorAll('.phase').forEach(el => el.remove());
+
+    const statuses = PHASES.map((_, i) => phaseStatus(i));
+    const completedPhases = statuses.filter(s => s === 'completed').length;
+    let focusIndex = statuses.findIndex(s => s !== 'completed');
+    if (focusIndex === -1) focusIndex = PHASES.length - 1;
+
+    PHASES.forEach((phase, index) => {
+      const status = statuses[index];
+
+      const isOpen = state.open[phase.id] !== undefined
+        ? state.open[phase.id]
+        : index === focusIndex;
+
+      const el = document.createElement('div');
+      el.className = 'phase state-' + status + (isOpen ? ' open' : '');
+      el.style.setProperty('--accent', phase.accent);
+      el.dataset.phaseId = phase.id;
+
+      const doneCount = phase.items.filter(i => state.checked[i.id]).length;
+
+      const statusLabel = status === 'completed' ? 'Concluída' : status === 'available' ? 'Disponível' : 'Bloqueada';
+      const nodeIcon = status === 'completed' ? '✓' : status === 'locked' ? '🔒' : phase.icon;
+
+      el.innerHTML = `
+        <div class="node-col">
+          <div class="node">${status === 'completed' ? '✓' : phase.icon}</div>
+        </div>
+        <div class="card">
+          <div class="card-head" data-toggle>
+            <div class="card-head-text">
+              <div class="tag">${phase.tag} · ${phase.subtitle}</div>
+              <h2>${phase.title}</h2>
+            </div>
+            <span class="status-pill">${statusLabel}</span>
+            ${chevronSVG}
+          </div>
+          <div class="card-body">
+            <div class="card-body-inner">
+              ${status === 'locked' ? `<div class="lock-note">🔒 Complete a fase anterior para desbloquear este conteúdo.</div>` : renderItems(phase, status)}
+            </div>
+          </div>
+        </div>
+      `;
+
+      timeline.appendChild(el);
+    });
+
+    updateProgress(completedPhases);
+    attachHandlers();
+  }
+
+  function renderItems(phase, status) {
+    return phase.items.map(item => {
+      const checked = !!state.checked[item.id];
+      return `
+        <div class="item ${checked ? 'done' : ''}" data-item-id="${item.id}">
+          <div class="checkbox ${checked ? 'checked' : ''}" data-check="${item.id}" role="checkbox" aria-checked="${checked}" tabindex="0">
+            ${checkIconSVG}
+          </div>
+          <div class="item-text">
+            <div class="item-title">${item.title}</div>
+            <div class="item-desc">${item.desc}</div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function updateProgress(completedPhases) {
+    const totalChecked = ALL_ITEM_IDS.filter(id => state.checked[id]).length;
+    const totalItems = ALL_ITEM_IDS.length;
+    const pct = totalItems ? Math.round((totalChecked / totalItems) * 100) : 0;
+
+    document.getElementById('barFill').style.width = pct + '%';
+    document.getElementById('pctValue').textContent = pct + '%';
+    document.getElementById('metaCount').textContent = totalChecked + ' de ' + totalItems + ' tópicos';
+
+    let currentPhase = PHASES.findIndex((_, i) => phaseStatus(i) !== 'completed');
+    if (currentPhase === -1) currentPhase = PHASES.length - 1;
+    document.getElementById('metaPhase').textContent = 'Fase ' + (currentPhase + 1) + ' de ' + PHASES.length;
+
+    const railTrack = document.querySelector('.rail');
+    const railHeight = railTrack ? railTrack.offsetHeight : 0;
+    const railPct = PHASES.length ? completedPhases / PHASES.length : 0;
+    document.getElementById('railFill').style.height = (railHeight * railPct) + 'px';
+
+    const badge = document.getElementById('badgeWrap');
+    if (completedPhases === PHASES.length) {
+      badge.classList.add('show');
+    } else {
+      badge.classList.remove('show');
+    }
+  }
+
+  function attachHandlers() {
+    timeline.querySelectorAll('[data-toggle]').forEach(head => {
+      head.addEventListener('click', () => {
+        const phaseEl = head.closest('.phase');
+        const phaseId = phaseEl.dataset.phaseId;
+        if (phaseEl.classList.contains('state-locked')) {
+          phaseEl.classList.remove('shake');
+          void phaseEl.offsetWidth;
+          phaseEl.classList.add('shake');
+          return;
+        }
+        const nowOpen = !phaseEl.classList.contains('open');
+        state.open[phaseId] = nowOpen;
+        saveState();
+        phaseEl.classList.toggle('open', nowOpen);
+      });
+    });
+
+    timeline.querySelectorAll('[data-check]').forEach(box => {
+      const toggle = () => {
+        const itemId = box.dataset.check;
+        state.checked[itemId] = !state.checked[itemId];
+        saveState();
+        render();
+      };
+      box.addEventListener('click', toggle);
+      box.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggle();
+        }
+      });
+    });
+  }
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    if (!confirm('Reiniciar todo o progresso da trilha?')) return;
+    state = { checked: {}, open: {} };
+    saveState();
+    render();
+  });
+
+  render();
+  window.addEventListener('resize', () => updateProgress(PHASES.filter((_, i) => phaseStatus(i) === 'completed').length));
+})();
+</script>
+
+</body>
+</html>
