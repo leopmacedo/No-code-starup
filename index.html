@@ -3,284 +3,119 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plano de Estudos — Claude Code para Profissionais Não Técnicos</title>
-<meta name="description" content="Jornada de aprendizado interativa sobre Claude Code para profissionais não técnicos: 3 módulos, 20 aulas, checkpoints e progresso salvo automaticamente.">
+<title>Preparatório para o TOEFL — 60 aulas com a BBC Learning English</title>
+<meta name="description" content="Jornada interativa de 60 aulas gratuitas com a BBC Learning English, do básico ao preparatório TOEFL.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#f7f5ef;
-  --ink:#22303a;
-  --ink-soft:#54646f;
-  --line:#d8d3c6;
-  --card:#ffffff;
-  --mod1:#1f6f6b;
-  --mod1-soft:#e3f0ef;
-  --mod2:#8a5a1e;
-  --mod2-soft:#f4ead8;
-  --mod3:#5b4a8a;
-  --mod3-soft:#eae6f4;
+  --paper:#f7f5ef;--ink:#22303a;--ink-soft:#54646f;--line:#d8d3c6;--card:#ffffff;
+  --mod1:#1f6f6b;--mod1-soft:#e3f0ef;--mod2:#8a5a1e;--mod2-soft:#f4ead8;--mod3:#5b4a8a;--mod3-soft:#eae6f4;
   --accent:#1f6f6b;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --paper:#161b20;
-    --ink:#e8e6e0;
-    --ink-soft:#a9b2ba;
-    --line:#333c44;
-    --card:#1f262d;
-    --mod1:#5cc4bf;
-    --mod1-soft:#173634;
-    --mod2:#e0aa5f;
-    --mod2-soft:#3a2d18;
-    --mod3:#b3a3e8;
-    --mod3-soft:#2b2540;
+    --paper:#161b20;--ink:#e8e6e0;--ink-soft:#a9b2ba;--line:#333c44;--card:#1f262d;
+    --mod1:#5cc4bf;--mod1-soft:#173634;--mod2:#e0aa5f;--mod2-soft:#3a2d18;--mod3:#b3a3e8;--mod3-soft:#2b2540;
     --accent:#5cc4bf;
   }
 }
 :root[data-theme="dark"]{
-  --paper:#161b20;
-  --ink:#e8e6e0;
-  --ink-soft:#a9b2ba;
-  --line:#333c44;
-  --card:#1f262d;
-  --mod1:#5cc4bf;
-  --mod1-soft:#173634;
-  --mod2:#e0aa5f;
-  --mod2-soft:#3a2d18;
-  --mod3:#b3a3e8;
-  --mod3-soft:#2b2540;
+  --paper:#161b20;--ink:#e8e6e0;--ink-soft:#a9b2ba;--line:#333c44;--card:#1f262d;
+  --mod1:#5cc4bf;--mod1-soft:#173634;--mod2:#e0aa5f;--mod2-soft:#3a2d18;--mod3:#b3a3e8;--mod3-soft:#2b2540;
   --accent:#5cc4bf;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
-  background:var(--paper);
-  color:var(--ink);
-  font-family:"Public Sans",system-ui,sans-serif;
-  line-height:1.55;
-  font-size:16px;
-  transition:background .3s ease,color .3s ease;
-}
+body{background:var(--paper);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;font-size:16px;transition:background .3s ease,color .3s ease}
 .wrap{max-width:880px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
 a{color:var(--accent)}
-
-/* ---------- HEADER ---------- */
 header.hero{padding:1.5rem 0 2rem;border-bottom:2px solid var(--ink)}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:.4rem;
-  font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--accent);background:var(--mod1-soft);
-  border:1.5px solid var(--line);border-radius:999px;
-  padding:.3rem .8rem;margin-bottom:1rem;
-}
-.hero h1{
-  font-family:"Fraunces",Georgia,serif;
-  font-weight:700;
-  font-size:clamp(1.9rem,5vw,3rem);
-  line-height:1.12;
-  letter-spacing:-0.01em;
-  max-width:22ch;
-}
-.hero p.lede{margin-top:1rem;color:var(--ink-soft);max-width:62ch;font-size:1.05rem}
+.eyebrow{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--mod1-soft);border:1.5px solid var(--line);border-radius:999px;padding:.3rem .8rem;margin-bottom:1rem}
+.hero h1{font-family:"Fraunces",Georgia,serif;font-weight:700;font-size:clamp(1.8rem,4.6vw,2.75rem);line-height:1.14;letter-spacing:-.01em;max-width:24ch}
+.hero p.lede{margin-top:1rem;color:var(--ink-soft);max-width:64ch;font-size:1.02rem}
 .hero .meta{margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:.5rem}
-.pill{
-  border:1.5px solid var(--line);
-  border-radius:999px;
-  padding:.3rem .85rem;
-  font-size:.85rem;
-  font-weight:600;
-  color:var(--ink-soft);
-  background:var(--card);
-}
-
-/* ---------- PROGRESS PANEL ---------- */
-.progress-panel{
-  margin-top:1.75rem;
-  background:var(--card);
-  border:1.5px solid var(--line);
-  border-radius:14px;
-  padding:1.4rem 1.5rem;
-}
+.pill{border:1.5px solid var(--line);border-radius:999px;padding:.3rem .85rem;font-size:.85rem;font-weight:600;color:var(--ink-soft);background:var(--card)}
+.progress-panel{margin-top:1.75rem;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:1.4rem 1.5rem}
 .progress-top{display:flex;justify-content:space-between;align-items:baseline;gap:.75rem;flex-wrap:wrap;margin-bottom:.85rem}
 .progress-top .label{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.05rem}
 .progress-top .pct{font-size:.88rem;color:var(--ink-soft)}
 .progress-top .pct strong{color:var(--ink);font-size:1.1rem;font-family:"Fraunces",Georgia,serif}
 .bar-track{height:10px;border-radius:999px;background:var(--mod1-soft);overflow:hidden;border:1px solid var(--line)}
-.bar-fill{
-  height:100%;border-radius:999px;width:0%;
-  background:linear-gradient(90deg,var(--mod1),var(--mod2) 50%,var(--mod3));
-  transition:width .7s cubic-bezier(.22,1,.36,1);
-}
+.bar-fill{height:100%;border-radius:999px;width:0%;background:linear-gradient(90deg,var(--mod1),var(--mod2) 50%,var(--mod3));transition:width .7s cubic-bezier(.22,1,.36,1)}
 .progress-meta{display:flex;justify-content:space-between;margin-top:.6rem;font-size:.82rem;color:var(--ink-soft)}
-
-/* ---------- HOWTO ---------- */
-.howto{
-  background:var(--card);
-  border:1.5px solid var(--line);
-  border-radius:14px;
-  padding:1.4rem 1.5rem;
-  margin-top:1.5rem;
-}
+.howto{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:1.4rem 1.5rem;margin-top:1.5rem}
 .howto h3{font-family:"Fraunces",Georgia,serif;font-size:1.15rem;margin-bottom:.6rem}
 .howto ol{padding-left:1.3rem;display:grid;gap:.45rem;color:var(--ink)}
 .howto p.note{margin-top:.9rem;color:var(--ink-soft);font-size:.92rem}
-
 section.intro{margin-top:2.75rem}
-
-/* ---------- TIMELINE ---------- */
 .timeline{position:relative;margin-top:2.75rem}
 .rail{position:absolute;left:27px;top:8px;bottom:8px;width:2px;background:var(--line);z-index:0}
 .rail-fill{position:absolute;left:27px;top:8px;width:2px;background:linear-gradient(180deg,var(--mod1),var(--mod2),var(--mod3));z-index:1;transition:height .8s cubic-bezier(.22,1,.36,1)}
-
-.module{
-  position:relative;z-index:2;
-  display:flex;gap:1.4rem;margin-bottom:1.75rem;
-  opacity:0;transform:translateY(18px);
-  animation:rise .7s cubic-bezier(.22,1,.36,1) forwards;
-}
-.module:nth-of-type(1){animation-delay:.05s}
-.module:nth-of-type(2){animation-delay:.18s}
-.module:nth-of-type(3){animation-delay:.31s}
+.module{position:relative;z-index:2;display:flex;gap:1.4rem;margin-bottom:1.75rem;opacity:0;transform:translateY(18px);animation:rise .7s cubic-bezier(.22,1,.36,1) forwards}
+.module:nth-of-type(1){animation-delay:.05s}.module:nth-of-type(2){animation-delay:.18s}.module:nth-of-type(3){animation-delay:.31s}
 @keyframes rise{to{opacity:1;transform:translateY(0)}}
-
 .node-col{flex:0 0 auto;width:56px;display:flex;flex-direction:column;align-items:center}
-.node{
-  width:56px;height:56px;border-radius:50%;
-  background:var(--card);border:2px solid var(--line);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.4rem;flex-shrink:0;transition:all .35s ease;
-}
+.node{width:56px;height:56px;border-radius:50%;background:var(--card);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;transition:all .35s ease}
 .module.state-available .node{border-color:var(--m-accent)}
 .module.state-completed .node{background:var(--m-accent-soft);border-color:var(--m-accent)}
 .module.state-locked .node{filter:grayscale(1);opacity:.5}
-
-.card{
-  flex:1;min-width:0;
-  background:var(--card);
-  border:1.5px solid var(--line);
-  border-radius:14px;
-  overflow:hidden;
-  transition:border-color .3s ease,opacity .3s ease;
-}
+.card{flex:1;min-width:0;background:var(--card);border:1.5px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .3s ease,opacity .3s ease}
 .module.state-available .card{border-color:var(--m-accent)}
 .module.state-completed .card{border-color:var(--m-accent)}
 .module.state-locked .card{opacity:.6}
-
-.card-head{
-  display:flex;align-items:center;gap:1rem;
-  padding:1.1rem 1.3rem;cursor:pointer;user-select:none;
-}
+.card-head{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;cursor:pointer;user-select:none}
 .module.state-locked .card-head{cursor:not-allowed}
 .card-head-text{flex:1;min-width:0}
-.card-head .tag{
-  display:inline-block;font-size:.78rem;font-weight:700;
-  border-radius:6px;padding:.15rem .6rem;margin-bottom:.4rem;
-  background:var(--m-accent-soft);color:var(--m-accent);
-}
+.card-head .tag{display:inline-block;font-size:.78rem;font-weight:700;border-radius:6px;padding:.15rem .6rem;margin-bottom:.4rem;background:var(--m-accent-soft);color:var(--m-accent)}
 .card-head h2{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.2rem;line-height:1.25}
 .card-head .subtitle{margin-top:.15rem;font-size:.85rem;color:var(--ink-soft)}
-
-.status-pill{
-  font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
-  padding:.3rem .7rem;border-radius:999px;white-space:nowrap;flex-shrink:0;
-  border:1.5px solid var(--line);color:var(--ink-soft);
-}
+.status-pill{font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.3rem .7rem;border-radius:999px;white-space:nowrap;flex-shrink:0;border:1.5px solid var(--line);color:var(--ink-soft)}
 .state-available .status-pill{color:var(--m-accent);border-color:var(--m-accent)}
 .state-completed .status-pill{background:var(--m-accent);color:var(--card);border-color:var(--m-accent)}
-
 .chevron{flex-shrink:0;width:18px;height:18px;color:var(--ink-soft);transition:transform .35s ease}
 .module.open .chevron{transform:rotate(180deg)}
-
-.card-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.22,1,.36,1)}
-.module.open .card-body{max-height:2000px}
+.card-body{max-height:0;overflow:hidden;transition:max-height .6s cubic-bezier(.22,1,.36,1)}
+.module.open .card-body{max-height:6000px}
 .card-body-inner{padding:.2rem 1.3rem 1.2rem;border-top:1px solid var(--line)}
-.mod-intro{margin:.9rem 0 .3rem;color:var(--ink-soft);font-size:.92rem;max-width:60ch}
-
+.mod-intro{margin:.9rem 0 .3rem;color:var(--ink-soft);font-size:.92rem;max-width:64ch}
+.week-band{margin:1rem 0 .3rem;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);background:var(--paper);padding:.4rem .6rem;border-radius:6px}
 .item{display:flex;align-items:flex-start;gap:.85rem;padding:.85rem .1rem;border-bottom:1px solid var(--line)}
 .item:last-child{border-bottom:none}
-.item-num{flex-shrink:0;font-weight:700;font-family:"Fraunces",Georgia,serif;color:var(--m-accent);width:1.6rem;padding-top:.1rem}
-
-.checkbox{
-  flex-shrink:0;width:20px;height:20px;margin-top:.15rem;
-  border-radius:6px;border:1.5px solid var(--line);background:var(--paper);
-  display:flex;align-items:center;justify-content:center;cursor:pointer;
-  transition:all .2s ease;
-}
+.checkbox{flex-shrink:0;width:20px;height:20px;margin-top:.15rem;border-radius:6px;border:1.5px solid var(--line);background:var(--paper);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s ease}
 .module.state-locked .checkbox{cursor:not-allowed;pointer-events:none}
 .checkbox svg{width:12px;height:12px;opacity:0;transform:scale(.5);transition:all .2s ease;stroke:#fff}
 .checkbox.checked{background:var(--m-accent);border-color:var(--m-accent)}
 .checkbox.checked svg{opacity:1;transform:scale(1)}
-
 .item-text{flex:1;min-width:0}
-.item-title{font-weight:700;font-size:.96rem;color:var(--ink);margin-bottom:.2rem;transition:color .2s ease}
+.item-title{font-weight:700;font-size:.94rem;color:var(--ink);margin-bottom:.2rem;transition:color .2s ease}
+.item-title .num{color:var(--m-accent);font-family:"Fraunces",Georgia,serif;margin-right:.35rem}
+.item-title a{text-decoration:none;border-bottom:1.5px solid currentColor}
 .item.done .item-title{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--line)}
-.item-desc{font-size:.87rem;line-height:1.55;color:var(--ink-soft)}
-
-.lock-note{
-  display:flex;align-items:center;gap:.6rem;margin:.9rem 0 .3rem;
-  padding:.75rem .9rem;border-radius:10px;
-  background:var(--paper);border:1.5px dashed var(--line);
-  font-size:.85rem;color:var(--ink-soft);
-}
-
+.item.done .item-title a{color:inherit}
+.item-desc{font-size:.86rem;line-height:1.55;color:var(--ink-soft)}
+.lock-note{display:flex;align-items:center;gap:.6rem;margin:.9rem 0 .3rem;padding:.75rem .9rem;border-radius:10px;background:var(--paper);border:1.5px dashed var(--line);font-size:.85rem;color:var(--ink-soft)}
 .module.shake .card{animation:shake .4s ease}
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
-
-/* ---------- CHECKPOINT ---------- */
-.checkpoint{
-  position:relative;z-index:2;display:flex;gap:1.4rem;margin-bottom:1.75rem;
-  opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.22,1,.36,1) forwards;
-  animation-delay:.4s;
-}
+.checkpoint{position:relative;z-index:2;display:flex;gap:1.4rem;margin-bottom:1.75rem;opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.22,1,.36,1) forwards;animation-delay:.4s}
 .checkpoint .node-col{width:56px;flex:0 0 auto;display:flex;justify-content:center}
-.checkpoint .cp-node{
-  width:40px;height:40px;margin-top:8px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;font-size:1.05rem;
-  background:var(--card);border:2px dashed var(--line);color:var(--ink-soft);
-  transition:all .35s ease;
-}
+.checkpoint .cp-node{width:40px;height:40px;margin-top:8px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.05rem;background:var(--card);border:2px dashed var(--line);color:var(--ink-soft);transition:all .35s ease}
 .checkpoint.reached .cp-node{border-style:solid;border-color:var(--m-accent);color:var(--m-accent);background:var(--m-accent-soft)}
-.checkpoint-body{
-  flex:1;padding:.9rem 1.2rem;border-radius:12px;
-  border:1.5px dashed var(--line);background:transparent;
-  font-size:.88rem;color:var(--ink-soft);
-}
+.checkpoint-body{flex:1;padding:.9rem 1.2rem;border-radius:12px;border:1.5px dashed var(--line);color:var(--ink-soft);font-size:.88rem}
 .checkpoint.reached .checkpoint-body{border-style:solid;border-color:var(--m-accent);color:var(--ink);background:var(--m-accent-soft)}
 .checkpoint-body strong{font-family:"Fraunces",Georgia,serif;font-weight:600;color:var(--ink);display:block;margin-bottom:.2rem}
-
-/* ---------- BADGE ---------- */
-.badge-wrap{
-  margin-top:1rem;text-align:center;padding:2.75rem 1.5rem;
-  border-radius:16px;background:var(--card);
-  border:1.5px solid var(--line);
-  display:none;opacity:0;transform:translateY(14px) scale(.98);
-  transition:opacity .6s ease,transform .6s cubic-bezier(.22,1,.36,1);
-}
+.routine{margin-top:.5rem;border-left:4px solid var(--accent);padding:.4rem 0 .4rem 1.1rem;color:var(--ink-soft);max-width:66ch;font-size:.9rem}
+.routine strong{color:var(--ink)}
+.badge-wrap{margin-top:1rem;text-align:center;padding:2.75rem 1.5rem;border-radius:16px;background:var(--card);border:1.5px solid var(--line);display:none;opacity:0;transform:translateY(14px) scale(.98);transition:opacity .6s ease,transform .6s cubic-bezier(.22,1,.36,1)}
 .badge-wrap.show{display:block;opacity:1;transform:translateY(0) scale(1)}
-.badge-medal{
-  width:72px;height:72px;margin:0 auto 1.1rem;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;font-size:2rem;
-  background:linear-gradient(140deg,var(--mod1),var(--mod2),var(--mod3));
-}
+.badge-medal{width:72px;height:72px;margin:0 auto 1.1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;background:linear-gradient(140deg,var(--mod1),var(--mod2),var(--mod3))}
 .badge-wrap h3{font-family:"Fraunces",Georgia,serif;font-size:1.5rem;margin-bottom:.5rem}
-.badge-wrap p{color:var(--ink-soft);font-size:.92rem;max-width:440px;margin:0 auto;line-height:1.6}
-
-/* ---------- FOOTER ---------- */
-footer{
-  margin-top:2.5rem;padding-top:1.5rem;
-  border-top:2px solid var(--ink);
-  display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
-  color:var(--ink-soft);font-size:.88rem;
-}
-.reset-btn{
-  font-family:"Public Sans",sans-serif;font-size:.82rem;font-weight:600;color:var(--ink-soft);
-  background:var(--card);border:1.5px solid var(--line);
-  padding:.5rem .95rem;border-radius:999px;cursor:pointer;transition:all .2s ease;
-}
+.badge-wrap p{color:var(--ink-soft);font-size:.92rem;max-width:460px;margin:0 auto;line-height:1.6}
+footer{margin-top:2.5rem;padding-top:1.5rem;border-top:2px solid var(--ink);color:var(--ink-soft);font-size:.9rem;max-width:70ch}
+footer strong{color:var(--ink)}
+.reset-btn{margin-top:1rem;font-family:"Public Sans",sans-serif;font-size:.82rem;font-weight:600;color:var(--ink-soft);background:var(--card);border:1.5px solid var(--line);padding:.5rem .95rem;border-radius:999px;cursor:pointer;transition:all .2s ease}
 .reset-btn:hover{color:var(--ink);border-color:var(--ink-soft)}
-
 @media (max-width:560px){
   .wrap{padding:1.75rem 1rem 3rem}
   .node-col,.checkpoint .node-col{width:40px}
@@ -296,55 +131,46 @@ footer{
 <div class="wrap">
 
 <header class="hero">
-  <span class="eyebrow">📚 Plano de estudos personalizado</span>
-  <h1>Claude Code para profissionais não técnicos</h1>
-  <p class="lede">Uma jornada de 3 módulos e 20 aulas para você aprender a usar o <a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> no seu trabalho — sem escrever uma linha de código sozinho. Marque cada aula concluída: os módulos se destravam em ordem e seu progresso fica salvo neste navegador.</p>
+  <span class="eyebrow">🎧 Plano de estudos personalizado</span>
+  <h1>Preparatório para o TOEFL — 60 aulas com a BBC</h1>
+  <p class="lede">Um cronograma completo usando apenas o material gratuito de <a href="https://www.bbc.co.uk/learningenglish" target="_blank" rel="noopener"><strong>bbclearningenglish.com</strong></a>. 12 semanas, 5 aulas por semana, 45–60 minutos cada — do nível básico ao intermediário, já preparando o ouvido e o vocabulário para o TOEFL. Cada aula tem link direto para o material.</p>
   <div class="meta">
-    <span class="pill">3 módulos</span>
-    <span class="pill">20 aulas</span>
-    <span class="pill">2 checkpoints</span>
-    <span class="pill">Progresso salvo automaticamente</span>
+    <span class="pill">12 semanas</span>
+    <span class="pill">60 aulas</span>
+    <span class="pill">45–60 min por aula</span>
+    <span class="pill">100% gratuito</span>
   </div>
-
   <div class="progress-panel">
-    <div class="progress-top">
-      <span class="label">Progresso geral</span>
-      <span class="pct"><strong id="pctValue">0%</strong> concluído</span>
-    </div>
+    <div class="progress-top"><span class="label">Progresso geral</span><span class="pct"><strong id="pctValue">0%</strong> concluído</span></div>
     <div class="bar-track"><div class="bar-fill" id="barFill"></div></div>
-    <div class="progress-meta">
-      <span id="metaCount">0 de 20 aulas</span>
-      <span id="metaModule">Módulo 1 de 3</span>
-    </div>
+    <div class="progress-meta"><span id="metaCount">0 de 60 aulas</span><span id="metaModule">Módulo 1 de 3</span></div>
   </div>
 </header>
 
 <section class="intro">
   <div class="howto">
-    <h3>Como usar este plano</h3>
+    <h3>Como funciona cada aula</h3>
     <ol>
-      <li><strong>Abra um módulo</strong> clicando no cabeçalho do cartão — ele expande para mostrar as aulas.</li>
-      <li><strong>Marque cada aula</strong> ao concluir, usando a caixinha à esquerda do título.</li>
-      <li><strong>Complete o checkpoint</strong> ao final de cada módulo antes de seguir para o próximo — o módulo seguinte só destrava quando o anterior estiver 100% concluído.</li>
+      <li><strong>Aquecimento (10 min):</strong> revise o vocabulário da aula anterior em voz alta e reassista 1 vídeo curto já estudado.</li>
+      <li><strong>Conteúdo principal (30–35 min):</strong> clique no link da aula, complete todas as sessões da unidade e faça os exercícios da própria página.</li>
+      <li><strong>Produção (10–15 min):</strong> escreva 4 a 6 frases usando o que aprendeu e leia em voz alta, gravando no celular para ouvir sua pronúncia.</li>
     </ol>
-    <p class="note">Seu progresso é salvo automaticamente no navegador (localStorage). Se limpar os dados do site ou trocar de dispositivo, a trilha reinicia do zero.</p>
+    <p class="note">Se algum link mudar de endereço, acesse <a href="https://www.bbc.co.uk/learningenglish/english/courses" target="_blank" rel="noopener">Courses</a> e procure o curso e a unidade pelo nome — todo o material continua lá.</p>
   </div>
 </section>
 
 <div class="timeline" id="timeline">
-  <div class="rail"></div>
-  <div class="rail-fill" id="railFill"></div>
-  <!-- módulos e checkpoints injetados por JS -->
+  <div class="rail"></div><div class="rail-fill" id="railFill"></div>
 </div>
 
 <div class="badge-wrap" id="badgeWrap">
   <div class="badge-medal">🏆</div>
   <h3>Trilha concluída!</h3>
-  <p>Você percorreu os 3 módulos e as 20 aulas do plano de estudos de Claude Code. Agora é hora de aplicar: escolha uma tarefa real do seu trabalho e resolva do início ao fim com o agente.</p>
+  <p>Você cobriu toda a gramática do nível A2–B1 e treinou listening com inglês real. Continue as unidades 11–30 do curso <a href="https://www.bbc.co.uk/learningenglish/english/course/intermediate" target="_blank" rel="noopener">Intermediate</a> em paralelo com um preparatório TOEFL, e use os simulados oficiais gratuitos da ETS (TOEFL TestReady) nas últimas semanas antes da prova.</p>
 </div>
 
 <footer>
-  <span>Plano de estudos gerado para uso pessoal.</span>
+  <p><strong>Rotina paralela (opcional, 10 min/dia):</strong> nos dias sem aula, ouça 1 episódio antigo de <a href="https://www.bbc.co.uk/learningenglish/english/features/6-minute-english" target="_blank" rel="noopener">6 Minute English</a> no celular, como um podcast. A constância do ouvido vale tanto quanto as aulas.</p>
   <button class="reset-btn" id="resetBtn" type="button">↺ reiniciar progresso</button>
 </footer>
 
@@ -352,98 +178,135 @@ footer{
 
 <script>
 (function () {
+  const L = (path) => 'https://www.bbc.co.uk/learningenglish/english/' + path;
+  const COURSE_L = L('course/lower-intermediate');
+  const COURSE_I = L('course/intermediate');
+  const MIN6 = L('features/6-minute-english');
+  const TEWS = L('features/the-english-we-speak');
+  const NEWSR = L('features/news-review');
+
   const MODULES = [
-    {
-      id: 'm1',
-      accent: 'var(--mod1)',
-      accentSoft: 'var(--mod1-soft)',
-      icon: '🌱',
-      tag: 'Aulas 1–6',
-      title: 'Fundamentos',
-      subtitle: 'O que é e por que importa',
-      intro: 'Antes de pedir qualquer coisa ao agente, entenda o que ele é, como pensa e como uma conversa se transforma em trabalho pronto.',
-      items: [
-        { title: 'O que é Claude Code', desc: 'Um assistente de IA que roda no seu computador e entende pedidos em português para criar, editar e organizar projetos digitais.' },
-        { title: 'Por que isso importa para quem não programa', desc: 'Você atua como "gerente": descreve o que quer, revisa o resultado e pede ajustes. Liste 3 tarefas do seu trabalho que gostaria de automatizar.' },
-        { title: 'Desmistificando o terminal', desc: 'A janela de texto onde você conversa com o agente é só uma caixa de comandos — não tem nada de assustador nela.' },
-        { title: 'Anatomia de um projeto', desc: 'Pastas e arquivos que juntos formam um site, uma planilha ou uma automação. Explore uma pasta de exemplo e identifique o que cada arquivo parece fazer.' },
-        { title: 'Sua primeira conversa com o agente', desc: 'Peça algo simples e concreto, como "crie uma lista de tarefas em um arquivo de texto", e observe como ele explica antes de agir.' },
-        { title: 'Contexto: o que o agente "lembra"', desc: 'Tudo que é dito na conversa fica na memória da sessão. Teste: mude de assunto e depois pergunte o que discutiram antes.' }
+    { id:'m1', accent:'var(--mod1)', accentSoft:'var(--mod1-soft)', icon:'🌱', tag:'Aulas 1–10',
+      title:'Fundamentos', subtitle:'Semanas 1–2',
+      intro:'Base do idioma usando as 5 primeiras unidades do curso Lower Intermediate, no ritmo de meia unidade por aula.',
+      weeks:[
+        { label:'Semana 1', items:[
+          {t:'Unidade 1 · Sessões 1–3', href:COURSE_L+'/unit-1', d:'Apresentações e formas de pergunta. Vá devagar, use o dicionário e pratique em voz alta: "I\'m… / I\'m from…".'},
+          {t:'Unidade 1 · Sessões 4–5', href:COURSE_L+'/unit-1', d:'Termine a unidade + Weekly Quiz. Depois assista 1 vídeo de English in a Minute.'},
+          {t:'Unidade 2 · Sessões 1–3', href:COURSE_L+'/unit-2', d:'Presente simples vs. contínuo. Escreva 6 frases sobre sua rotina e o que está fazendo agora.'},
+          {t:'Unidade 2 · Sessões 4–5', href:COURSE_L+'/unit-2', d:'Termine a unidade + quiz. Ouça o áudio da unidade 2 vezes (a 2ª lendo a transcrição).'},
+          {t:'Unidade 3 · Sessões 1–3', href:COURSE_L+'/unit-3', d:'Advérbios de frequência (always, usually, never…). Descreva sua semana típica em voz alta.'}
+        ]},
+        { label:'Semana 2', items:[
+          {t:'Unidade 3 · Sessões 4–5', href:COURSE_L+'/unit-3', d:'Termine a unidade + quiz + 1 vídeo de English in a Minute sem pausar; depois reveja pausando.'},
+          {t:'Unidade 4 · Sessões 1–3', href:COURSE_L+'/unit-4', d:'Passado simples — verbos regulares e irregulares. Monte uma lista com os 15 irregulares que aparecerem.'},
+          {t:'Unidade 4 · Sessões 4–5', href:COURSE_L+'/unit-4', d:'Termine a unidade + quiz. Conte em 5 frases o que você fez ontem.'},
+          {t:'Unidade 5 · Sessões 1–3', href:COURSE_L+'/unit-5', d:'Complete as sessões + comece o drama "The Race", 1ª vez sem transcrição, 2ª com.'},
+          {t:'Unidade 5 · Sessões 4–5', href:COURSE_L+'/unit-5', d:'Termine a unidade + grave 2 min de áudio se apresentando e descrevendo sua rotina. Guarde a gravação.'}
+        ]}
       ],
-      checkpoint: 'Consiga explicar em duas frases, para um colega, o que é o Claude Code e por que ele pode ajudar no seu trabalho.'
+      checkpoint:'Ouça sua gravação da aula 10 e confira: você consegue se apresentar e descrever sua rotina sem travar?'
     },
-    {
-      id: 'm2',
-      accent: 'var(--mod2)',
-      accentSoft: 'var(--mod2-soft)',
-      icon: '🛠️',
-      tag: 'Aulas 7–14',
-      title: 'Trabalhando com projetos reais',
-      subtitle: 'Do pedido à entrega',
-      intro: 'Aqui você aprende a estruturar pedidos, revisar o trabalho do agente e manter tudo organizado — o ciclo completo de um projeto pequeno.',
-      items: [
-        { title: 'Descrevendo o que você quer', desc: 'Escreva um parágrafo curto com objetivo, formato esperado e um exemplo do resultado final antes de pedir ao agente.' },
-        { title: 'Plan Mode: peça um plano antes da ação', desc: 'Em tarefas maiores, peça "monte um plano antes de começar", revise o plano e só depois aprove a execução.' },
-        { title: 'Organizando arquivos com ajuda do agente', desc: 'Peça ao Claude Code para organizar uma pasta de exemplo em subpastas com nomes claros.' },
-        { title: 'Automatizando uma tarefa repetitiva', desc: 'Escolha uma tarefa manual do seu dia a dia e peça ao agente para criar algo simples que faça isso por você.' },
-        { title: 'Revisando e corrigindo o trabalho do agente', desc: 'Nenhum agente acerta 100%. Peça para ele explicar o que fez, aponte o que está errado e peça o ajuste específico.' },
-        { title: 'Usando /clear para recomeçar', desc: 'Quando a conversa ficar longa ou confusa, use /clear e recomece com um pedido mais direto.' },
-        { title: 'Boas práticas de prompt', desc: 'Escreva pedidos com objetivo, contexto e exemplo. Reescreva um pedido antigo seu adicionando essas três partes.' },
-        { title: 'Guardando seu progresso com Git', desc: 'Entenda o Git como uma "linha do tempo" do projeto. Peça ao agente para salvar o progresso atual com uma mensagem clara.' }
+    { id:'m2', accent:'var(--mod2)', accentSoft:'var(--mod2-soft)', icon:'📘', tag:'Aulas 11–40',
+      title:'Curso Lower Intermediate', subtitle:'Semanas 3–8',
+      intro:'Continuação do curso a partir da unidade 6, no ritmo de 1 unidade por aula. As 5 últimas aulas são de consolidação.',
+      weeks:[
+        { label:'Semanas 3–4 · Unidades 6–15', items:[
+          {t:'Unidade 6', href:COURSE_L+'/unit-6', d:'Prefixos e sufixos (word building). Complete as 5 sessões + quiz e anote 10 palavras novas.'},
+          {t:'Unidade 7', href:COURSE_L+'/unit-7', d:'Present perfect — experiências de vida. Responda em voz alta: "Have you ever…?" com 5 exemplos seus.'},
+          {t:'Unidade 8', href:COURSE_L+'/unit-8', d:'Comparativos e superlativos. Compare 3 pares de coisas que você conhece.'},
+          {t:'Unidade 9', href:COURSE_L+'/unit-9', d:'Planos futuros: going to e will. Fale 1 minuto sobre seus planos para o próximo ano.'},
+          {t:'Unidade 10', href:COURSE_L+'/unit-10', d:'Complete a unidade + refaça os exercícios que errou nas unidades 1–9.'},
+          {t:'Unidade 11', href:COURSE_L+'/unit-11', d:'Substantivos contáveis e incontáveis (much/many/some/any). Complete as 5 sessões + quiz.'},
+          {t:'Unidade 12', href:COURSE_L+'/unit-12', d:'Obrigação e permissão: must, have to, can. Escreva 5 regras da sua casa ou trabalho.'},
+          {t:'Unidade 13', href:COURSE_L+'/unit-13', d:'Conselhos: should, why don’t you… Dê 5 conselhos a um amigo imaginário.'},
+          {t:'Unidade 14', href:COURSE_L+'/unit-14', d:'Primeira condicional. Monte 5 frases condicionais sobre sua vida.'},
+          {t:'Unidade 15', href:COURSE_L+'/unit-15', d:'Complete a unidade + grave 2 min de áudio contando sua última semana no passado. Compare com a aula 10.'}
+        ]},
+        { label:'Semanas 5–6 · Unidades 16–25', items:[
+          {t:'Unidade 16', href:COURSE_L+'/unit-16', d:'Verbos frasais mais comuns. Complete as 5 sessões + quiz e revise o vocabulário das unidades 11–15.'},
+          {t:'Unidade 17', href:COURSE_L+'/unit-17', d:'Present perfect vs. passado simples. Conte 3 fatos recentes da sua vida.'},
+          {t:'Unidade 18', href:COURSE_L+'/unit-18', d:'Voz passiva. Escreva 6 frases com o ponto gramatical.'},
+          {t:'Unidade 19', href:COURSE_L+'/unit-19', d:'Segunda condicional. Fale 1 minuto: "What would you do if you won the lottery?".'},
+          {t:'Unidade 20', href:COURSE_L+'/unit-20', d:'Complete a unidade + o episódio do drama (1ª vez sem transcrição, 2ª com).'},
+          {t:'Unidade 21', href:COURSE_L+'/unit-21', d:'Discurso indireto (reported speech) — essencial para o listening do TOEFL.'},
+          {t:'Unidade 22', href:COURSE_L+'/unit-22', d:'Pronomes relativos: who, which, that, where. Descreva 4 pessoas ou lugares.'},
+          {t:'Unidade 23', href:COURSE_L+'/unit-23', d:'Used to — hábitos do passado. Conte 5 hábitos da sua infância.'},
+          {t:'Unidade 24', href:COURSE_L+'/unit-24', d:'Gerúndio vs. infinitivo. Escreva 6 frases sobre o que você gosta/quer fazer.'},
+          {t:'Unidade 25', href:COURSE_L+'/unit-25', d:'Complete a unidade + ouça o listening 2 vezes e resuma em 4 frases escritas.'}
+        ]},
+        { label:'Semanas 7–8 · Unidades 26–30 + consolidação', items:[
+          {t:'Unidade 26', href:COURSE_L+'/unit-26', d:'Quantificadores e artigos (a/an/the). Complete as 5 sessões + quiz.'},
+          {t:'Unidade 27', href:COURSE_L+'/unit-27', d:'Present perfect continuous. Responda "How long have you been studying English?" e mais 4 perguntas.'},
+          {t:'Unidade 28', href:COURSE_L+'/unit-28', d:'Past perfect. Conte uma história curta com ordem de eventos no passado.'},
+          {t:'Unidade 29', href:COURSE_L+'/unit-29', d:'Conectivos: however, although, because, so — base para o writing do TOEFL. Escreva 5 frases conectadas.'},
+          {t:'Unidade 30', href:COURSE_L+'/unit-30', d:'Última unidade do curso! Complete as 5 sessões + Weekly Quiz.'},
+          {t:'Revisão de gramática', href:COURSE_L, d:'Refaça os quizzes das 5 unidades em que você mais errou (anote quais foram ao longo do curso).'},
+          {t:'Maratona do drama', href:COURSE_L, d:'Reouça 4 episódios de "The Race" seguidos, sem transcrição. Meta: acompanhar a história de ouvido.'},
+          {t:'Vocabulário', href:null, d:'Releia seu caderno inteiro e marque as palavras que esqueceu; crie 1 frase nova com cada uma.'},
+          {t:'Escrita', href:null, d:'Escreva um texto de 8–10 frases sobre sua cidade usando 3 tempos verbais diferentes e 3 conectivos.'},
+          {t:'Fala', href:null, d:'Fim do módulo: grave 3 min descrevendo seu passado, presente e planos futuros. Compare com as gravações anteriores.'}
+        ]}
       ],
-      checkpoint: 'Escolha um mini-projeto real do seu trabalho e complete um ciclo inteiro — pedido, plano, execução, revisão — antes de avançar.'
+      checkpoint:'Compare as gravações das aulas 10, 20 e 40 — dá para ouvir a diferença? Isso é o seu progresso real.'
     },
-    {
-      id: 'm3',
-      accent: 'var(--mod3)',
-      accentSoft: 'var(--mod3-soft)',
-      icon: '🚀',
-      tag: 'Aulas 15–20',
-      title: 'Escalando e automatizando',
-      subtitle: 'Do projeto pessoal ao uso profissional',
-      intro: 'Última etapa: delegar tarefas a agentes especializados, conectar o Claude Code a outras ferramentas e publicar o que você construiu.',
-      items: [
-        { title: 'Sub-agentes e Skills', desc: 'Delegue partes específicas de uma tarefa grande a "especialistas" menores dentro do próprio Claude Code.' },
-        { title: 'Conectando o agente a outras ferramentas', desc: 'Explore como o Claude Code pode acessar planilhas, e-mail ou outros sistemas do seu trabalho através de integrações.' },
-        { title: 'Criando automações recorrentes', desc: 'Configure uma tarefa para rodar sozinha em um horário fixo, como um resumo semanal, com ajuda do agente.' },
-        { title: 'Publicando o resultado do seu trabalho', desc: 'Aprenda a colocar no ar uma página, painel ou documento gerado pelo agente para outras pessoas acessarem.' },
-        { title: 'Segurança e boas práticas', desc: 'Nunca compartilhe senhas ou dados sensíveis diretamente no chat; revise sempre o que será publicado.' },
-        { title: 'Seu projeto final', desc: 'Escolha um problema real do seu trabalho e resolva do início ao fim com o Claude Code, aplicando tudo o que aprendeu.' }
+    { id:'m3', accent:'var(--mod3)', accentSoft:'var(--mod3-soft)', icon:'🎧', tag:'Aulas 41–60',
+      title:'Ponte para o intermediário', subtitle:'Semanas 9–12',
+      intro:'Combine as primeiras unidades do curso Intermediate com 6 Minute English, The English We Speak e News Review — inglês real sobre ciência, sociedade e atualidades, no estilo do TOEFL.',
+      weeks:[
+        { label:'Semanas 9–10', items:[
+          {t:'Intermediate · Unidade 1', href:COURSE_I+'/unit-1', d:'Primeira unidade do curso Intermediate. Note a diferença de velocidade dos áudios.'},
+          {t:'6 Minute English', href:MIN6, d:'1 episódio de tema científico: ouça sem transcrição, depois com, e copie as 6 palavras do vocabulário.'},
+          {t:'Intermediate · Unidade 2', href:COURSE_I+'/unit-2', d:'Complete a unidade + exercícios.'},
+          {t:'The English We Speak', href:TEWS, d:'2 episódios (expressões idiomáticas). Crie 1 frase sua com cada expressão.'},
+          {t:'Intermediate · Unidade 3', href:COURSE_I+'/unit-3', d:'Complete a unidade + releia o texto da unidade em voz alta cronometrando.'},
+          {t:'6 Minute English', href:MIN6, d:'1 episódio de tema social/educação. Escreva um resumo de 4 frases em inglês.'},
+          {t:'Intermediate · Unidade 4', href:COURSE_I+'/unit-4', d:'Complete a unidade + revise os erros da semana.'},
+          {t:'News Review', href:NEWSR, d:'1 episódio sobre notícia da semana. Anote as 3 expressões ensinadas e use cada uma numa frase.'},
+          {t:'Intermediate · Unidade 5', href:COURSE_I+'/unit-5', d:'Complete a unidade inteira com exercícios.'},
+          {t:'Checkpoint 4', href:null, d:'Grave 3 min de áudio opinando sobre um tema do 6 Minute English da semana. Compare com as gravações anteriores.'}
+        ]},
+        { label:'Semanas 11–12', items:[
+          {t:'Intermediate · Unidade 6', href:COURSE_I+'/unit-6', d:'Complete a unidade + exercícios.'},
+          {t:'6 Minute English', href:MIN6, d:'1 episódio de tecnologia/meio ambiente. Resumo escrito de 5 frases usando conectivos.'},
+          {t:'Intermediate · Unidade 7', href:COURSE_I+'/unit-7', d:'Complete a unidade + releia seu caderno de vocabulário inteiro.'},
+          {t:'News Review', href:NEWSR, d:'1 episódio novo. Tente explicar a notícia em voz alta em 1 minuto, em inglês.'},
+          {t:'Intermediate · Unidade 8', href:COURSE_I+'/unit-8', d:'Complete a unidade + exercícios.'},
+          {t:'6 Minute English (2 episódios)', href:MIN6, d:'2 episódios seguidos, o segundo sem transcrição. Meta: entender 70% de primeira.'},
+          {t:'Intermediate · Unidade 9', href:COURSE_I+'/unit-9', d:'Complete a unidade + escreva 8 frases com o ponto gramatical.'},
+          {t:'Writing acadêmico', href:null, d:'Escreva um texto de 100 palavras: "Should everyone learn English?" — formato mini-TOEFL.'},
+          {t:'Intermediate · Unidade 10', href:COURSE_I+'/unit-10', d:'Complete a unidade + revisão geral dos pontos fracos do caderno.'},
+          {t:'Prova final · 6 Minute English', href:MIN6, d:'Teste dos 70%: assista 1 episódio novo sem transcrição. Se entender ~70%, você está pronto para um preparatório TOEFL.'}
+        ]}
       ],
-      checkpoint: null
+      checkpoint:null
     }
   ];
 
-  const STORAGE_KEY = 'claudeCodeStudyPlan.v2';
-  MODULES.forEach((m, mi) => m.items.forEach((it, ii) => { it.id = m.id + '-i' + ii; }));
-  const ALL_ITEM_IDS = MODULES.flatMap(m => m.items.map(i => i.id));
+  const STORAGE_KEY = 'toeflStudyPlan.v1';
+  let n = 0;
+  MODULES.forEach(m => m.weeks.forEach(w => w.items.forEach(it => { n++; it.id = 'i' + n; it.num = n; })));
+  const ALL_ITEM_IDS = MODULES.flatMap(m => m.weeks.flatMap(w => w.items.map(i => i.id)));
 
-  function loadState() {
-    try {
-      const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-      return { checked: raw.checked || {}, open: raw.open || {} };
-    } catch (e) {
-      return { checked: {}, open: {} };
-    }
-  }
-  function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+  function loadState(){ try { const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); return { checked: raw.checked || {}, open: raw.open || {} }; } catch(e){ return { checked:{}, open:{} }; } }
+  function saveState(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
   let state = loadState();
 
-  function isModuleComplete(m) { return m.items.every(i => !!state.checked[i.id]); }
-  function moduleStatus(index) {
+  function moduleItems(m){ return m.weeks.flatMap(w => w.items); }
+  function isModuleComplete(m){ return moduleItems(m).every(i => !!state.checked[i.id]); }
+  function moduleStatus(index){
     if (index === 0) return isModuleComplete(MODULES[0]) ? 'completed' : 'available';
-    const prevComplete = isModuleComplete(MODULES[index - 1]);
+    const prevComplete = isModuleComplete(MODULES[index-1]);
     if (!prevComplete) return 'locked';
     return isModuleComplete(MODULES[index]) ? 'completed' : 'available';
   }
 
   const timeline = document.getElementById('timeline');
-  const checkIconSVG = '<svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+  const checkSVG = '<svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
   const chevronSVG = '<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>';
 
-  function render() {
+  function render(){
     timeline.querySelectorAll('.module, .checkpoint').forEach(el => el.remove());
-
     const statuses = MODULES.map((_, i) => moduleStatus(i));
     const completedModules = statuses.filter(s => s === 'completed').length;
     let focusIndex = statuses.findIndex(s => s !== 'completed');
@@ -452,38 +315,27 @@ footer{
     MODULES.forEach((mod, index) => {
       const status = statuses[index];
       const isOpen = state.open[mod.id] !== undefined ? state.open[mod.id] : index === focusIndex;
-
       const el = document.createElement('div');
       el.className = 'module state-' + status + (isOpen ? ' open' : '');
       el.style.setProperty('--m-accent', mod.accent);
       el.style.setProperty('--m-accent-soft', mod.accentSoft);
       el.dataset.moduleId = mod.id;
-
       const statusLabel = status === 'completed' ? 'Concluído' : status === 'available' ? 'Disponível' : 'Bloqueado';
-
       el.innerHTML = `
-        <div class="node-col">
-          <div class="node">${status === 'completed' ? '✓' : status === 'locked' ? '🔒' : mod.icon}</div>
-        </div>
+        <div class="node-col"><div class="node">${status==='completed'?'✓':status==='locked'?'🔒':mod.icon}</div></div>
         <div class="card">
           <div class="card-head" data-toggle>
             <div class="card-head-text">
-              <span class="tag">Módulo ${index + 1} · ${mod.tag}</span>
+              <span class="tag">Módulo ${index+1} · ${mod.tag}</span>
               <h2>${mod.title}</h2>
               <div class="subtitle">${mod.subtitle}</div>
             </div>
-            <span class="status-pill">${statusLabel}</span>
-            ${chevronSVG}
+            <span class="status-pill">${statusLabel}</span>${chevronSVG}
           </div>
-          <div class="card-body">
-            <div class="card-body-inner">
-              ${status === 'locked'
-                ? `<div class="lock-note">🔒 Complete o módulo anterior para desbloquear este conteúdo.</div>`
-                : `<p class="mod-intro">${mod.intro}</p>` + renderItems(mod)}
-            </div>
-          </div>
-        </div>
-      `;
+          <div class="card-body"><div class="card-body-inner">
+            ${status==='locked' ? '<div class="lock-note">🔒 Complete o módulo anterior para desbloquear este conteúdo.</div>' : '<p class="mod-intro">'+mod.intro+'</p>' + renderWeeks(mod)}
+          </div></div>
+        </div>`;
       timeline.appendChild(el);
 
       if (mod.checkpoint) {
@@ -492,13 +344,7 @@ footer{
         cp.className = 'checkpoint' + (reached ? ' reached' : '');
         cp.style.setProperty('--m-accent', mod.accent);
         cp.style.setProperty('--m-accent-soft', mod.accentSoft);
-        cp.innerHTML = `
-          <div class="node-col"><div class="cp-node">🚩</div></div>
-          <div class="checkpoint-body">
-            <strong>Checkpoint ${index + 1}</strong>
-            ${mod.checkpoint}
-          </div>
-        `;
+        cp.innerHTML = `<div class="node-col"><div class="cp-node">🚩</div></div><div class="checkpoint-body"><strong>Checkpoint</strong>${mod.checkpoint}</div>`;
         timeline.appendChild(cp);
       }
     });
@@ -507,89 +353,79 @@ footer{
     attachHandlers();
   }
 
-  function renderItems(mod) {
-    return mod.items.map((item, i) => {
+  function renderWeeks(mod){
+    return mod.weeks.map(w => `<div class="week-band">${w.label}</div>` + renderItems(w.items)).join('');
+  }
+
+  function renderItems(items){
+    return items.map(item => {
       const checked = !!state.checked[item.id];
+      const titleHTML = item.href
+        ? `<a href="${item.href}" target="_blank" rel="noopener">${item.t}</a>`
+        : item.t;
       return `
-        <div class="item ${checked ? 'done' : ''}" data-item-id="${item.id}">
-          <div class="checkbox ${checked ? 'checked' : ''}" data-check="${item.id}" role="checkbox" aria-checked="${checked}" tabindex="0">
-            ${checkIconSVG}
-          </div>
+        <div class="item ${checked?'done':''}">
+          <div class="checkbox ${checked?'checked':''}" data-check="${item.id}" role="checkbox" aria-checked="${checked}" tabindex="0">${checkSVG}</div>
           <div class="item-text">
-            <div class="item-title">${item.title}</div>
-            <div class="item-desc">${item.desc}</div>
+            <div class="item-title"><span class="num">${item.num}.</span>${titleHTML}</div>
+            <div class="item-desc">${item.d}</div>
           </div>
-        </div>
-      `;
+        </div>`;
     }).join('');
   }
 
-  function updateProgress(completedModules) {
+  function updateProgress(completedModules){
     const totalChecked = ALL_ITEM_IDS.filter(id => state.checked[id]).length;
     const totalItems = ALL_ITEM_IDS.length;
-    const pct = totalItems ? Math.round((totalChecked / totalItems) * 100) : 0;
-
+    const pct = totalItems ? Math.round((totalChecked/totalItems)*100) : 0;
     document.getElementById('barFill').style.width = pct + '%';
     document.getElementById('pctValue').textContent = pct + '%';
     document.getElementById('metaCount').textContent = totalChecked + ' de ' + totalItems + ' aulas';
-
     let currentModule = MODULES.findIndex((_, i) => moduleStatus(i) !== 'completed');
     if (currentModule === -1) currentModule = MODULES.length - 1;
-    document.getElementById('metaModule').textContent = 'Módulo ' + (currentModule + 1) + ' de ' + MODULES.length;
-
+    document.getElementById('metaModule').textContent = 'Módulo ' + (currentModule+1) + ' de ' + MODULES.length;
     const railTrack = document.querySelector('.rail');
     const railHeight = railTrack ? railTrack.offsetHeight : 0;
     const railPct = MODULES.length ? completedModules / MODULES.length : 0;
-    document.getElementById('railFill').style.height = (railHeight * railPct) + 'px';
-
+    document.getElementById('railFill').style.height = (railHeight*railPct) + 'px';
     const badge = document.getElementById('badgeWrap');
-    if (completedModules === MODULES.length) badge.classList.add('show');
-    else badge.classList.remove('show');
+    if (completedModules === MODULES.length) badge.classList.add('show'); else badge.classList.remove('show');
   }
 
-  function attachHandlers() {
+  function attachHandlers(){
     timeline.querySelectorAll('[data-toggle]').forEach(head => {
       head.addEventListener('click', () => {
         const modEl = head.closest('.module');
         const modId = modEl.dataset.moduleId;
         if (modEl.classList.contains('state-locked')) {
-          modEl.classList.remove('shake');
-          void modEl.offsetWidth;
-          modEl.classList.add('shake');
+          modEl.classList.remove('shake'); void modEl.offsetWidth; modEl.classList.add('shake');
           return;
         }
         const nowOpen = !modEl.classList.contains('open');
-        state.open[modId] = nowOpen;
-        saveState();
+        state.open[modId] = nowOpen; saveState();
         modEl.classList.toggle('open', nowOpen);
       });
     });
-
     timeline.querySelectorAll('[data-check]').forEach(box => {
-      const toggle = () => {
+      const toggle = (e) => {
+        e.preventDefault();
         const itemId = box.dataset.check;
         state.checked[itemId] = !state.checked[itemId];
-        saveState();
-        render();
+        saveState(); render();
       };
       box.addEventListener('click', toggle);
-      box.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
-      });
+      box.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') toggle(e); });
     });
   }
 
   document.getElementById('resetBtn').addEventListener('click', () => {
     if (!confirm('Reiniciar todo o progresso da trilha?')) return;
-    state = { checked: {}, open: {} };
-    saveState();
-    render();
+    state = { checked:{}, open:{} }; saveState(); render();
   });
 
   render();
-  window.addEventListener('resize', () => updateProgress(MODULES.filter((_, i) => moduleStatus(i) === 'completed').length));
+  window.addEventListener('resize', () => updateProgress(MODULES.filter((_, i) => moduleStatus(i)==='completed').length));
 })();
 </script>
-
 </body>
 </html>
